@@ -3,7 +3,7 @@
 
 <h1>IPO</h1>
 
-<p>Input prompt </p>
+<p>Input a number to get that number doubled </p>
 
 <input @bind="InputString "/>
 
@@ -26,7 +26,8 @@
         double num = double.Parse(InputString);
 
         num = num * 2; 
-        <output>num</output>
+
+        OutputString = num.ToString();
 
     }
 
