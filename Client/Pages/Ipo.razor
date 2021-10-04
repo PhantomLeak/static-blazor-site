@@ -1,7 +1,7 @@
 @page "/ipo"
 
 
-<h1>IPO</h1>
+<h1>Double your number</h1>
 
 <p>Input a number to get that number doubled </p>
 
@@ -11,12 +11,35 @@
 
 <p>Output: @OutputString </p>
 
+
+<h1>Tip Calculator</h1>
+
+<p>Enter the price of your meal </p>
+
+<input @bind="InputStringTip "/>
+
+<button class="btn btn-primary" @onclick="DoTipProcessing">Tip amount</button>
+
+<p>You should tip: $ @OutputStringTip </p>
+
+
+<h1>Miles Per Gallon Calculator</h1>
+
+<p>Input your tank size and how many miles you drove </p>
+
+<input placeholder="Tank Size"@bind="InputStringTankSize "/>
+<input placeholder="Miles Driven"@bind="InputStringMilesDriven "/>
+
+<button class="btn btn-primary" @onclick="DoMPGProcessing">Let's Calculate'</button>
+
+<p>You're getting: @OutputStringMilesPerGallon  miles per gallon</p>
+
+
 @code
 
 {
 
     private string InputString { get; set; }
-
     private string OutputString { get; set; }
 
     private void DoProcessing()
@@ -28,6 +51,39 @@
         num = num * 2; 
 
         OutputString = num.ToString();
+
+    }
+
+    private string InputStringTip { get; set; }
+    private string OutputStringTip { get; set; }
+
+    private void DoTipProcessing()
+
+    {
+
+        double num = double.Parse(InputStringTip);
+
+        num = num * 0.20; 
+
+        OutputStringTip = num.ToString();
+
+    }
+
+    private string InputStringTankSize { get; set; }
+    private string InputStringMilesDriven { get; set; }
+    private string OutputStringMilesPerGallon { get; set; }
+
+    private void DoMPGProcessing()
+
+    {
+
+        double tankSize = double.Parse(InputStringTankSize);
+        double milesDriven = double.Parse(InputStringMilesDriven);
+        double milesPerGallon;
+
+        milesPerGallon = milesDriven / tankSize; 
+
+        OutputStringMilesPerGallon = milesPerGallon.ToString();
 
     }
 
