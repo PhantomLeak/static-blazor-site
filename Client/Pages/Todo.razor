@@ -1,31 +1,31 @@
 @page "/todo"
 
-<! -- sets the title and gets the amount of todo items set -- >
+<!-- sets the title and gets the amount of todo items set -->
 
 <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1> 
 
 <ul>
-    @foreach (var todo in todos) // for each variable named todo in todos
+    @foreach (var todo in todos) //for each variable named todo in todos
     {
         <li>
-            <input type="checkbox" @bind="todo.IsDone" /> <! -- Creates textbox to left of todo item -- >
+            <input type="checkbox" @bind="todo.IsDone" /> <!--Creates textbox to left of todo item -->
             <input @bind="todo.Title" />
         </li>
     }
 </ul>
 
-<input placeholder="Something todo" @bind="newTodo" /> // placeholder in textbox 
-<button @onclick="AddTodo">Add todo</button> <! --adds a new todo button on click -->
+<input placeholder="Something todo" @bind="newTodo" /> <!--placeholder in textbox--> 
+<button @onclick="AddTodo">Add todo</button> <!--adds a new todo button on click-->
 
 @code {
     private List<TodoItem> todos = new(); //creates class for todo list
-    private string newTodo; <! -- creates a new string named newTodo -- >
+    private string newTodo; //creates a new string named newTodo 
 
-    private void AddTodo() <! -- creates function to add a new todo item -- >
+    private void AddTodo() //creates function to add a new todo item 
     {
         if (!string.IsNullOrWhiteSpace(newTodo))
         {
-            todos.Add(new TodoItem { Title = newTodo }); <! -- adds new todo item title -- >
+            todos.Add(new TodoItem { Title = newTodo }); //adds new todo item title
             newTodo = string.Empty;
         }
     }
