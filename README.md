@@ -1,5 +1,5 @@
 # Blazor Custom Application
-<h3> A custom static blazor site that allows users to </h3>
+A custom static blazor site that allows users to
 - With a counter to show user interation inputing 
 - View weather around the area of FGCU
 - Create a todo list for items that need to be completed
